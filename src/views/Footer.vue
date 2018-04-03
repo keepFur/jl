@@ -1,22 +1,22 @@
 <template>
-  <div>
-      <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
-  </div>
-
+    <Affix :offset-bottom="0">
+         <div class="footer-content">
+             2015-2018 &copy; surong
+             </div> 
+    </Affix>
 </template>
 
 <style scoped>
-.layout-footer-center{
+.footer-content {
+    height: 60px;
+    line-height: 60px;
+    background: #eee;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
-
 </style>
 
 <script>
 export default {
-  
+
 }
 </script>

@@ -1,9 +1,21 @@
 const routers = [{
     path: '/',
     meta: {
-        title: ' 综合信息'
+        title: '主页'
     },
-    component: (resolve) => require(['./views/index.vue'], resolve)
+    component: (resolve) => require(['./views/Index.vue'], resolve)
+}, {
+    path: '/home',
+    meta: {
+        title: '主页'
+    },
+    component: (resolve) => require(['./views/Index.vue'], resolve)
+}, {
+    path: '/admin',
+    meta: {
+        title: '编辑简历'
+    },
+    component: (resolve) => require(['./views/Admin.vue'], resolve)
 }, {
     path: '/baseinfo',
     meta: {
@@ -22,5 +34,23 @@ const routers = [{
         title: '工作经历'
     },
     component: (resolve) => require(['./views/WorkExperience.vue'], resolve)
+}, {
+    path: '/projectexprience',
+    meta: {
+        title: '项目经验'
+    },
+    component: (resolve) => require(['./views/Projectexprience.vue'], resolve)
+}, {
+    path: '/educationalbackground',
+    meta: {
+        title: '教育背景'
+    },
+    component: (resolve) => require(['./views/EducationalBackground.vue'], resolve)
+}, {
+    path: '/personalevaluation',
+    meta: {
+        title: '个人评价'
+    },
+    component: (resolve) => require(['./views/PersonalEvaluation.vue'], resolve)
 }];
 export default routers;

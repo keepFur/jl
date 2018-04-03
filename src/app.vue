@@ -1,37 +1,47 @@
 <template>
     <div>
         <Header></Header>
-        <router-view></router-view>
+        <div class="content">
+            <router-view></router-view>
+        </div>
         <Footer></Footer>
+<BackToTop></BackToTop>
     </div>
 </template>
 <script>
 import Header from './views/Header';
 import Footer from './views/Footer';
-    export default {
-        data() {
-            return {
+import BackToTop from './views/BackToTop';
+export default {
+    data() {
+        return {
 
-            };
-        },
-        mounted() {
+        };
+    },
+    mounted() {
 
-        },
-        beforeDestroy() {
+    },
+    beforeDestroy() {
 
-        },
-        methods: {
+    },
+    methods: {
 
-        },
-        components:{
-            Header,
-            Footer
-        }
-    };
+    },
+    components: {
+        Header,
+        Footer,
+        BackToTop
+    }
+};
 </script>
 
 <style scoped>
-a{
+a {
     color: #fff;
+}
+
+.content {
+    /* margin-top: 60px; */
+     margin-bottom: 60px; 
 }
 </style>

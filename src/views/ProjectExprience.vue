@@ -17,7 +17,7 @@
 <template>
     <div class="container">
         <Card :bordered="false">
-            <p slot="title">工作经历</p>
+            <p slot="title">项目经验</p>
             <Timeline>
                 <TimelineItem>
                     <p class="time">1976年</p>

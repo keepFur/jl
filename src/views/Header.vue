@@ -1,76 +1,67 @@
 <template>
-    <Menu mode="horizontal" :theme="theme1" active-name="1">
-        <MenuItem name="1">
-        <Icon type="ios-paper"></Icon>
-        <router-link :to="{path:'/'}"> 综合信息 </router-link>
-        </MenuItem>
-        <MenuItem name="2">
-        <Icon type="ios-people"></Icon>
-        <router-link :to='{path:"/baseinfo"}'> 基础信息</router-link>
-        </MenuItem>
-        <MenuItem name="3">
-        <Icon type="settings"></Icon>
-        <router-link to="/skills"> 职业技能</router-link>
-        </MenuItem>
-        <MenuItem name="4">
-        <Icon type="settings"></Icon>
-        工作经历
-        </MenuItem>
-        <Submenu name="4">
-            <template slot="title">
-                <Icon type="stats-bars"></Icon>
-                <router-link to="/workexperience">工作经历</router-link>
-            </template>
-            <MenuGroup title="主要">
-                <MenuItem name="4-1">工作经历1</MenuItem>
-                <MenuItem name="4-2">工作经历2</MenuItem>
-                <MenuItem name="4-3">工作经历3</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="次要">
-                <MenuItem name="4-4">工作经历3</MenuItem>
-                <MenuItem name="4-5">工作经历4</MenuItem>
-            </MenuGroup>
-        </Submenu>
-        <Submenu name="5">
-            <template slot="title">
-                <Icon type="stats-bars"></Icon>
-                项目经验
-            </template>
-            <MenuGroup title="主要">
-                <MenuItem name="5-1">项目1</MenuItem>
-                <MenuItem name="5-2">项目2</MenuItem>
-                <MenuItem name="5-3">项目3</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="次要">
-                <MenuItem name="5-4">项目4</MenuItem>
-                <MenuItem name="5-5">项目5</MenuItem>
-            </MenuGroup>
-        </Submenu>
-        <Submenu name="6">
-            <template slot="title">
-                <Icon type="stats-bars"></Icon>
-                教育背景
-            </template>
-            <MenuGroup title="主要">
-                <MenuItem name="6-1">教育经历1</MenuItem>
-                <MenuItem name="6-2">教育经历2</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="次要">
-                <MenuItem name="6-3">教育经历3</MenuItem>
-            </MenuGroup>
-        </Submenu>
-        <MenuItem name="7">
-        <Icon type="settings"></Icon>
-        个人评价
-        </MenuItem>
-    </Menu>
+    <Affix>
+        <Menu mode="horizontal" :theme="theme" active-name="home" @on-select='menuItemSelectHandle'>
+            <MenuItem name="home">
+            <Icon type="home"></Icon>
+            主页
+            </MenuItem>
+            <MenuItem name="baseinfo">
+            <Icon type="person"></Icon>
+            基础信息
+            </MenuItem>
+            <MenuItem name="skills">
+            <Icon type="wand"></Icon>
+            职业技能
+            </MenuItem>
+            <MenuItem name="workexperience">
+            <Icon type="cube"></Icon>
+            工作经历
+            </MenuItem>
+            <MenuItem name="projectexprience">
+            <Icon type="trophy"></Icon>
+            项目经验
+            </MenuItem>
+            <MenuItem name="educationalbackground">
+            <Icon type="university"></Icon>
+            教育背景
+            </MenuItem>
+            <MenuItem name="personalevaluation">
+            <Icon type="eye"></Icon>
+            个人评价
+            </MenuItem>
+            <Submenu name="download">
+                <template slot="title">
+                    <Icon type="archive"></Icon>
+                    下载简历为
+                </template>
+                <MenuGroup title="文档">
+                    <MenuItem name="8-1">DOC</MenuItem>
+                    <MenuItem name="8-2">PDF</MenuItem>
+                </MenuGroup>
+                <MenuGroup title="图片">
+                    <MenuItem name="8-3">PNG</MenuItem>
+                    <MenuItem name="8-4">JPG</MenuItem>
+                </MenuGroup>
+            </Submenu>
+            <UserInfo></UserInfo>
+        </Menu>
+    </Affix>
 </template>
 <script>
+import UserInfo from './UserInfo.vue';
 export default {
     data() {
         return {
-            theme1: 'primary'
+            theme: 'primary'
         }
+    },
+    methods: {
+        menuItemSelectHandle: function(menuItemName) {
+            this.$router.push('/' + menuItemName);
+        }
+    },
+    components:{
+        UserInfo
     }
 }
 </script>

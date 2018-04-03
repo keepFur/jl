@@ -1,0 +1,919 @@
+<include file="Public:top" />
+<!-- 会员设置 -->
+
+
+<link rel="stylesheet" href="/Public/css/new_kb.css">
+<style type="text/css">
+    body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    form,
+    fieldset,
+    input,
+    textarea,
+    p,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .input {
+        background: url("../images/input.png") repeat-x scroll 0 0 #FFFFFF;
+        border: 1px solid #D0D0D0;
+        font-family: Verdana, Geneva, sans-serif, "微软雅黑";
+        font-size: 14px;
+        height: 24px;
+        line-height: 24px;
+        margin: 0 5px 0 0;
+        padding: 2px 0 2px 5px;
+        text-align: left;
+    }
+    
+    .error {
+        color: #ff0000;
+    }
+    
+    input {
+        color: #666666;
+        font-family: Verdana, Geneva, sans-serif, "微软雅黑";
+    }
+    /*------会员中心------*/
+    
+    .userbox {
+        MARGIN: 0px auto;
+        WIDTH: 1006px
+    }
+    
+    .userbox .userleft {
+        width: 200px;
+        border: 1px solid #e6e6e6;
+        float: left;
+        margin-top: 5px;
+    }
+    
+    .userbox .userleft .myleftnav ul {
+        width: 200px;
+    }
+    
+    .userbox .userleft .myleftnav ul li {
+        font-size: 14px;
+    }
+    
+    .userbox .userleft .myleftnav ul li .mytitle {
+        background: url(../images/myicon01.gif) no-repeat 15px 11px;
+        border-bottom: 1px dotted #d6d6d6;
+        height: 38px;
+        line-height: 38px;
+        font-size: 16px;
+        color: #2c1887;
+        font-weight: bold;
+        padding-left: 40px;
+        cursor: pointer;
+    }
+    
+    .userbox .userleft .myleftnav ul li.selected .mytitle {
+        background: url(../images/myicon01.gif) no-repeat 15px -50px;
+    }
+    
+    .userbox .userleft .myleftnav ul li .none {
+        display: none;
+    }
+    
+    .userbox .userleft .myleftnav ul li div {
+        width: 160px;
+        margin: 0 auto;
+        padding: 10px 0 0 0;
+    }
+    
+    .userbox .userleft .myleftnav ul li div p a {
+        display: block;
+        width: 130px;
+        padding-left: 30px;
+        height: 30px;
+        line-height: 30px;
+        background: url(../images/myicon02.gif) no-repeat 18px 14px;
+    }
+    
+    .userbox .userleft .myleftnav ul li div p a:hover {
+        background: #f7f7f7 url(../images/myicon02.gif) no-repeat 18px 14px;
+    }
+    
+    .userbox .userright {
+        width: 770px;
+        float: right;
+        margin-top: 5px;
+    }
+    
+    .userbox .userright .mynow {
+        background: url(../images/myicon04.gif) repeat-x;
+        height: 46px;
+    }
+    
+    .userbox .userright .mynow div {
+        background: url(../images/myicon03.gif) no-repeat;
+        width: 130px;
+        line-height: 34px;
+        text-align: center;
+        height: 34px;
+        padding-top: 12px;
+        font-size: 20px;
+        margin-left: 15px;
+    }
+    
+    .userbox .userright .userinfo {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    .userbox .userright .mylist2 {
+        border: 1px solid #dedede;
+        margin-top: 20px;
+    }
+    
+    .userbox .userright .mylist2 ul {
+        margin: 0 auto;
+        padding: 10px 0;
+        width: 700px;
+    }
+    
+    .userbox .userright .mylist2 ul li {
+        line-height: 30px;
+        font-size: 14px;
+        border-bottom: 1px solid #f2f2f2;
+    }
+    
+    .userbox .userright .mylist2 div {
+        line-height: 36px;
+        font-size: 14px;
+        padding-left: 20px;
+        background: #f6f6f6;
+        border-bottom: 1px solid #f2f2f2;
+    }
+    
+    .mywelcome {
+        background: #f8f8f8;
+        border-bottom: 1px solid #e6e6e6;
+    }
+    
+    .mywelcome .myview {
+        line-height: 24px;
+        width: 170px;
+        margin: 0 auto;
+        padding: 15px 5px 10px;
+        background: url(../images/myline.gif) repeat-x bottom;
+    }
+    
+    .mywelcome .myquicknav p {
+        font-weight: bold;
+        line-height: 36px;
+        padding-left: 15px;
+    }
+    
+    .mywelcome .myquicknav div {
+        width: 186px;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    
+    .mywelcome .myquicknav div a {
+        float: left;
+        display: inline;
+        width: 60px;
+        margin: 0 1px;
+        font-size: 12px;
+        padding-top: 48px;
+        background: url(../images/myicon05.gif) no-repeat;
+        line-height: 24px;
+        height: 30px;
+    }
+    
+    .mywelcome .myquicknav div a.mya1 {
+        background-position: 6px 0px;
+    }
+    
+    .mywelcome .myquicknav div a.mya2 {
+        background-position: -59px 0px;
+    }
+    
+    .mywelcome .myquicknav div a.mya3 {
+        background-position: -126px 0px;
+    }
+    
+    .mywelcome .myquicknav div a.mya4 {
+        background-position: 6px -79px;
+    }
+    
+    .mywelcome .myquicknav div a.mya5 {
+        background-position: -59px -79px;
+    }
+    
+    .mywelcome .myquicknav div a.mya6 {
+        background-position: -126px -79px;
+    }
+    
+    .focus_button {
+        width: 119px;
+        cursor: pointer;
+        height: 30px;
+        line-height: 30px;
+        margin: 0px;
+        margin-right: 9px;
+        float: left;
+        padding: 0px;
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        background-image: url(../images/focu_button.jpg)
+    }
+    
+    .myclass_pay_card {
+        font-size: 14px;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+    }
+    
+    .mytd table tr td {
+        vertical-align: top;
+    }
+    
+    input.submit {
+        width: 100px;
+        height: 35px;
+        border: none;
+        background: #ff8800;
+        font-family: "微软雅黑";
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        -moz-border-radius: 5px;
+        /* Gecko browsers */
+        -webkit-border-radius: 5px;
+        /* Webkit browsers */
+        border-radius: 5px;
+        /* W3C syntax */
+    }
+    
+    .mytitle03 {
+        display: block;
+        padding: 3px 5px;
+        text-align: right;
+        height: 30px;
+    }
+    
+    .myinputbox {
+        padding: 5px;
+        border: 1px solid #ddd;
+        width: 298px;
+    }
+    
+    .myinputbox div {
+        overflow: hidden;
+        width: 298px;
+    }
+    
+    .myinputbox div select {
+        margin: -1px;
+        width: 300px;
+    }
+    
+    .addtextstyle {
+        background: #ddd;
+    }
+    
+    .addtextstyle tr td {
+        background: #fff;
+    }
+    
+    #cheisnos {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .myinputbox01 {
+        border: 1px solid #ddd;
+        height: 28px;
+        line-height: 28px;
+    }
+    /* ----------table1是列表虚拟商品---------- */
+    
+    .table1 {
+        background: #dddddd;
+        margin-left: 0px;
+    }
+    
+    .table1 td {
+        text-align: center;
+        background: #ffffff;
+    }
+    
+    .table1 th {
+        background: #f8f8f8;
+    }
+    
+    .table1 th a,
+    .table1 td a {
+        color: #0088cc;
+    }
+    
+    .table1 th a:hover,
+    .table1 td a:hover {
+        text-decoration: underline;
+    }
+    
+    .table1 .a {
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin: 0 auto
+    }
+    
+    .td_right {
+        width: 750px;
+        padding: 8px 12px 10px 10px;
+        background-color: #fff;
+    }
+    
+    .text {
+        font-family: Tahoma;
+        width: 220px;
+        height: 20px;
+        line-height: 20px;
+        background-color: #FFF;
+        padding: 3px!important;
+        border: solid 1px;
+        border-color: #BBB;
+    }
+    
+    .text:focus {
+        background-color: #FFF;
+        border-color: #EFA100;
+        outline: 2px solid #FFDC97;
+    }
+    
+    .tip-yellowsimple {
+        color: #666;
+        background-color: #fff9c9;
+        text-align: left;
+        min-width: 50px;
+        max-width: 300px;
+        border: 1px solid #c7bf93;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        z-index: 1000;
+        padding: 6px 8px;
+    }
+    
+    .tip-yellowsimple .tip-inner {
+        font: 12px/16px arial, helvetica, sans-serif;
+    }
+    
+    .tip-yellowsimple .tip-arrow-top {
+        background: url(../images/tip-yellowsimple_arrows.gif) no-repeat;
+        width: 9px;
+        height: 6px;
+        margin-top: -6px;
+        margin-left: -5px;
+        top: 0;
+        left: 50%;
+    }
+    
+    .tip-yellowsimple .tip-arrow-right {
+        background: url(../images/tip-yellowsimple_arrows.gif) no-repeat -9px 0;
+        width: 6px;
+        height: 9px;
+        margin-top: -4px;
+        margin-left: 0;
+        top: 50%;
+        left: 100%;
+    }
+    
+    .tip-yellowsimple .tip-arrow-bottom {
+        background: url(../images/tip-yellowsimple_arrows.gif) no-repeat -18px 0;
+        width: 9px;
+        height: 6px;
+        margin-top: 0;
+        margin-left: -5px;
+        top: 100%;
+        left: 50%;
+    }
+    
+    .tip-yellowsimple .tip-arrow-left {
+        background: url(../images/tip-yellowsimple_arrows.gif) no-repeat -27px 0;
+        width: 6px;
+        height: 9px;
+        margin-top: -4px;
+        margin-left: -6px;
+        top: 50%;
+        left: 0;
+    }
+</style>
+
+<!-- 会员设置 -->
+
+<!-- 头部区 -->
+
+<script src="/Public/js/member-txgg.js" type="text/javascript"></script>
+
+<!-- 主体区 -->
+<div class="module fl wfs">
+    <div class="wrapper mt20">
+        <!-- 侧边工具 -->
+
+        <!-- 侧边工具 -->
+        <include file="Public:left_nav" />
+        <!-- 侧边工具 -->
+
+        <!-- 侧边工具 -->
+        <!-- 右边内容区 -->
+
+        <div class="member-index fr w955" style=" height: 100%; ">
+            <div class="c_rightBox">
+
+
+                <div class="myled" style="margin-top:15px;">
+                    <iframe align="center" border="0" marginWidth=0 marginHeight=0 src="{:U('Index/Index/led')}" frameBorder=0 width="100%" height="35px" scrolling="no"></iframe>
+                </div>
+
+                <form id="order_form" action="{:U('kbsave')}" method="POST">
+                    <div class="myclass_pay_card mytd">
+                        <table id="mytab" border="0" cellSpacing="1" cellPadding="5" width="946">
+                            <tr>
+                                <td colspan="3"><span class="mytitle03" style="text-align:left;color:#2c1887;font-size:16px;height:38px;line-height:38px;"><b>（淘宝、天猫、阿里）空包下单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Public/images/tixing.gif" alt="" /></b></span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="mytitle03">快递选择：</span></td>
+                                <td colspan="2">
+                                    <div class="myinputbox">
+                                        <div>
+                                            <select name="type_id" id="type_id" onchange="itemchange($(this))">
+		        <option value="">=请=选=择=快=递=类=型=</option>
+				<!--<option value="16">优速快递【淘宝、天猫、阿里、专用】</option>-->
+				<!--<option value="14">天天快递【淘宝、天猫、阿里、专用】不点发货不出物流</option>-->
+				<!--<option value="26">安能物流【淘宝、天猫、专用】新上、相对优惠些</option>-->
+				<option value="4">龙邦快递【淘宝、天猫、专用】</option>
+				<option value="30">百世快递【淘宝、天猫、专用】</option>
+				<option value="29">快捷快递【淘宝、天猫、阿里、专用】</option>
+				<!--<option value="25">全峰快递【淘宝、天猫、专用】</option>-->
+		        </foreach>
+		      </select>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="2">
+                                    <textarea id="detail" disabled="true" style="width:620px;padding:10px;border:1px solid #ddd;background:#f2f2f2;height:200px;font-size:14px; line-height:16px;"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="2">
+                                    您的会员级别：
+                                    <font color="red"><b>{$user['type_name']}</b></font>&nbsp;&nbsp;享受单价：
+                                    <font color="red"><b><span id="current_text"></span></b></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td width="110"><span class="mytitle03" style="width:110px;">发货地址选择：</span></td>
+                                <td width="410">
+                                    <div class="myinputbox" style="width:398px;">
+                                        <div style="width:398px;">
+                                            <select name="address_id" id="address_id" style="width:400px;">
+		        <option value="">=请=选=择=发=货=地=址=</option>
+		        <foreach name="address_list" item="address">
+		        <option value="{$address['id']}" <eq name="address.is_default" value='1'>selected</eq> >{$address['title']}</option>
+		        </foreach>
+		      </select>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="392">
+                                    <a href="{:U('User/address')}">
+                                        <font color="#337fe5">[添加/管理发货地址]</font>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="10"></td>
+                            </tr>
+                            <tr>
+                                <!-- 包裹重量开始 -->
+                                <td width="110"><span class="mytitle03" style="width:110px;">包裹重量：</span></td>
+                                <td width="410">
+                                    <div class="myinputbox" style="width:398px;">
+                                        <div style="width:398px;">
+                                            <span style="margin-top:10px;font-size:14px;"><font style="font-size:17px;color:red"></font>&nbsp;&nbsp;<input type="text"  value="1.0" name="rec_phone" id="rec_phone"  style="text:center"/>
+			<font style="font-size:15px;;color:red">&nbsp;&nbsp;*kg</font>&nbsp;&nbsp;(不输入默认1.0千克)			 </span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="10"></td>
+                            </tr>
+                            <tr>
+                                <!-- 包裹重量结束 -->
+                                <td><span class="mytitle03">收货人信息：</span></td>
+                                <td colspan="2" rowspan="2">
+                                    格式：姓名，手机，省（空格）市（空格）县区（空格）详细地址，邮编 <a target="_blank" style="color:#00F;font-size:16px;font-weight:bold;margin-left:5px;" href="http://17.xh-8.cn/index.php/Help/help/id/8.html">收货地址格式详细教程？</a><br>
+                                    <b style="color:#f00;">例如：张三，13688888888 ，广东省 深圳市 罗湖区 深南大道102号，518000</b><br> 严格按上面的格式来( 由于格式原因造成的失败，该站概不负责) <b style="color:#00f;">三个逗号，三个空格，一个都不要少，也不能多！</b><br />
+                                    <b style="color:#f00;font-size:16px; height:26px; line-height:26px; background-color:#FF9">下面输入框可一次性输入500条数据！每条一行，输完点：检测地址格式是否正确，再提交！</b>
+
+                                    <p style="width: 600px; padding: 10px 0; color: #060;">
+                                        <font><b>如果不懂格式请选择：</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<input class="submit" style="cursor:pointer;" value="&nbsp;&nbsp;&nbsp;单独添加" onclick="add_address()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="/index.php/Order/kbtb.html"><img src="/Public/images/1492154096x2890174358.png" /><strong><span style="color:#003399;font-size:18px;">我要批量上传</span></strong></a>
+
+                                        <div id="fileList" class="submit">
+                                            <div id="fileList" class="submit">
+
+                                                <br>
+
+                                                <textarea name="postscript" id="postscript" value="" onblur="javascript:this.value=this.value.replace(',','，');" onkeyup="contr()" spellcheck="false" style="width:740px;padding:10px;border:1px solid #ddd;height:130px;font-size:14px;"></textarea>
+                                                <span>
+                            
+           
+                            
+           </td>
+        </tr> 
+      </table>
+      <div id="addinputarrs" ></div>
+    <input type="hidden" id="single_price"  value=""/>
+    <input type="hidden" id="zhongliang"  value=""/>
+    <input type="hidden" id="order_money" name="order_money" value=""/>
+    <input type="hidden" id="order_nums" name="order_nums" value=""/>
+      <div style="text-align:center;padding:20px;">
+      
+      
+      
+      <div style="margin-top:10px;margin-bottom:10px;">
+			
+			 </div>
+      <img src="/Public/kindeditor/attached/image/20151125/20151125211915_24499.gif" alt="" /><input id="btn_check" type="button" value="检查地址格式是否正确" onclick="checkisnos()" style="background:#fcf8e3;height:34px;border:1px solid #faeabe;color:#ff8800;font-size:16px;cursor:pointer;padding:0 20px;width:auto;" class="submit" />&nbsp;&nbsp;<input type="submit" class="submit" style="cursor:pointer;" value="确定提交" onclick="return chk_submit()" /></div>
+    </div>
+    <div id="cheisnos" style="width:770px;" ></div>
+    </form> 
+
+  
+    <script type="text/javascript">
+    var is_enabled = -1;
+    var checkSubmitFlg = false; 
+    function chk_submit()
+    {
+        if (!checkSubmitFlg)
+        { 
+        	checkSubmitFlg = true;      
+        }else{
+            alert("双击无效，不能重复提交，请稍等几秒自动跳转到下单记录页面");
+            return false;
+        }   	
+    	if(is_enabled==-1)
+    	{
+    		alert('请先对数据进行校验!');
+    		checkSubmitFlg = false;
+    		$("#btn_check").focus();
+    		return false;
+    	}
+    	if(is_enabled !=1)
+    	{
+    		alert('有错误数据，请调整后再提交!');
+    		checkSubmitFlg = false;
+    		return false;
+    	} 
+    }
+     function itemchange(obj)
+     {
+     	var type_id = obj.val();
+     	if(type_id=='' || type_id==0)
+     	{
+     		$("#detail").text('');
+     		$("#current_text").html('');   
+     		$("#single_price").val('');   
+     	} 
+     	$.post("{:U('getDetail')}",{id:type_id},function(data,status)
+     	{
+     		var return_data = data.data; 
+     		var detail = return_data.detail.replace(/\|/gm,     "\r\n")
+     		$("#detail").text(detail);
+      		var current_text = return_data.current;
+      		var single_price = return_data.price; 
+     		$("#current_text").html(current_text);    		
+     		$("#single_price").val(single_price);    	
+     	},'json');  
+     	//对之前已经校验过的数据进行清理add by liq  20140517
+     	 $('#cheisnos').html('');
+		 $('#cheisnos').css('display','none'); 
+		 $('#addinputarrs').html('');  
+		 $("#order_nums").val('0'); 
+		 $("#order_money").val('0');		 
+		 $('#postscript').val('');
+		 is_enabled = -1;    	
+     }
+     
+ 	function checkisnos(){ 
+ 		  var type_id = $("#type_id").val();	 
+		  if(type_id==""){
+				alert("请选择快递！");
+				$("#type_id").focus();
+				return false;
+		   }	
+ 		  var address_id = $("#address_id").val();	 
+		  if(address_id==""){
+				alert("请选择发货地址！");
+				$("#address_id").focus();
+				return false;
+		   }		   		
+		   addtext =$('#postscript').val();
+		  if(addtext==""){
+				alert("请您填写收货地址！");
+				$("#postscript").focus();
+				return false;
+		   }  			   
+		  var current_price = parseFloat($('#single_price').val());
+		  if(current_price<=0){
+				alert("你选择的快递单价出错！");
+				return false;
+		   }	  
+			  //是否错误标识
+			  isno=1;
+		 	  var addtextarr= new Array(); 
+			  var adddan=new Array();
+			  addtextarr=addtext.split("\n");
+			  addstr="";
+			  addinputarr="";
+			  addsum=0;
+			   
+			  //最多一次只能提交500个
+			  if(addtextarr.length<=500){
+			  for(i=0;i<addtextarr.length;i++){ 
+				  if(addtextarr[i]  && trim(addtextarr[i])!='' ){
+				 addtextarr[i] = addtextarr[i].replace(/\'/g, "");
+				 addtextarr[i] = addtextarr[i].replace(/\,/g, "，");		
+				 addinputarr+="<input type='hidden' name='addinputarr["+addsum+"]' value='"+addtextarr[i]+"' >";  
+				 adddan=trim(addtextarr[i]).split("，");
+				 addsum+=1;
+				//保存表单数据方便提交
+				 if(adddan.length!=5  && adddan.length!=4){alert("第"+addsum +" 个收货地址格式有错误，请仔细检查！");  isno=0;}
+				 if(adddan.length==5)
+				 {
+				 	 var shouhuodizhi = adddan[3];//获取收件地址  
+				 }else if(adddan.length==4)
+				 {
+				 	  var shouhuodizhi = adddan[2];//获取收件地址 
+				 } 
+                // 把多余一个的空格替换成一个空格
+                 shouhuodizhi = trim(shouhuodizhi).replace(/\s{1,}/g,' ');
+				 var shdz_array =trim(shouhuodizhi).split(' ');
+				 if(shdz_array.length<4)
+				 {
+				 	alert("第"+addsum +" 个收货地址格式中省、市、县之间应该用空格隔开，请仔细检查！");  isno=0;
+				 }			
+     			 //判断地址之间空格是否是多个
+     			 if(exists_multispace(trim(shouhuodizhi)))
+     			 {
+     			 	 alert("第"+addsum +" 个收货地址格式中省、市、县之间只能用一个空格隔开，请仔细检查！");  isno=0;
+     			 }						 	
+				 addstr+="<tr><td class='addyes'>"+addsum+"</td>"; 
+				 for(j=0;j<adddan.length;j++){
+					 //如果不是四个淘宝的逗号格式提示错误
+					 if(adddan.length!=5  && adddan.length!=4 ){
+						 //如果有数据就显示 ，没有显示空
+						 if(adddan[j]){
+								addstr+="<td  class='adderror'>" +adddan[j]+"</td>";
+						 }
+						 else{
+									addstr+="<td  class='adderror'>" +"</td>"; 
+							 }
+					 }else
+					 {
+					 		 if(adddan.length==4 && j==2)
+					 		{
+					 			addstr+="<td class='addyes'></td>";	
+					 		}
+							 if(isno==0)
+						 	  {
+						 	  	addstr+="<td class='adderror'>" +adddan[j]+"</td>";	 
+						 	  }else{
+						 	  	addstr+="<td class='addyes'>" +adddan[j]+"</td>";	 
+						 	  }  
+					 }
+					 }
+				  addstr+="</tr>";
+				  } 
+				  }
+			  }
+			  else{
+				  alert("亲，一次最多只能批量下500单，请减少收货地址！");  isno=0;
+				  }
+				  
+			  //计算价格
+			  kuaidisum=addsum*current_price;
+			  
+			  $("#order_nums").val(addsum);
+			   
+			  $("#order_money").val(kuaidisum);
+			  
+			 var table_html="<table class='addtextstyle'  cellpadding='5' width='100%' cellspacing='1'><tr><td  class='addyes' ><b>编号</b></td><td  class='addyes'><b>名字</b></td><td  class='addyes'><b>手机</b></td><td  class='addyes'><b>电话</b></td><td  class='addyes'><b>地址</b></td><td  class='addyes'><b>邮编</b></td></tr>"+addstr+"</table>"+"<p> 共 "+addsum+" X "  + current_price +"="+kuaidisum.toFixed(2)+" <input type='hidden' value="+kuaidisum.toFixed(2)+" name='kuaidipicle' id='kuaidipicle' /><input type='hidden' value='0' name='youyuer' id='youyuer'/>";  
+			   $('#cheisnos').html(table_html);
+			  $('#cheisnos').css('display','block'); 
+			 $('#addinputarrs').html(addinputarr);  
+			 is_enabled =isno;
+			  return(isno);
+		 } 
+		function trim(str){   
+		 str = str.replace(/^(\s|\u00A0)+/,'');   
+			for(var i=str.length-1; i>=0; i--){   
+			  if(/\S/.test(str.charAt(i))){   
+			    str = str.substring(0, i+1);   
+ 				  break;   
+			 }   
+		 }   
+		 return str;   
+		}
+		// 去除字符串中多余的空格
+		function trimAll(){
+				
+		}   
+		function addcoten() {
+
+
+
+		var nam = $("#realname").val();
+		var tel = $("#tel").val();
+		var sf = $("#s_province").val();
+		var cs = $("#s_city").val();
+		var xq = $("#s_county").val();
+		var xx = $("#streettc").val();
+		var yb = $("#streets").val();
+		var n = ($("#postscript").val().split('\n')).length - 1;
+		if (n >= 99) {
+            alert('亲,最多添加500条！');
+			return;
+		}
+		if (nam == "" || tel == "" || sf == "--请选择--" || cs == "--请选择--" || xq == "--请选择--" || xx == "" || yb == "") {
+			alert('请检查所有必填项是否填写！');
+			return;
+		}
+		var qsr = nam + "，" + tel + "，" + sf + " " + cs + " " + xq + " " + xx + "，" + yb;
+
+		if ($("#postscript").val() == "") {
+			$("#postscript").val(qsr);
+		} else {
+			
+			$("#postscript")[0].value += "\n" + qsr;
+			
+		}
+		
+		$("#realname").val("");
+		$("#tel").val("");
+		$("#streettc").val("");
+		$("#streets").val("");　
+		_init_area();　　
+}
+
+$(function() {
+$('.existing_event').dropkick();
+$('.ex_delivery').dropkick();
+});
+
+     function exists_multispace(str)
+     {
+     	  var rtn_result=false;
+     	  var str_length_old=str.length;
+     	  str = str.replace(/\  /g, " ");
+     	  var str_length =str.length;
+     	  if(str_length_old !=str_length )
+     	  {
+     	  	  rtn_result = true;
+     	  } 
+     	  return rtn_result;
+     } 	   
+</script>   
+
+<div  class="address" style="display:none;width:600px;height:320px"  >
+	<form  id="address_form"  action="{:U('address_save')}" method="POST"> 
+		<table border="0" cellSpacing="1" bgcolor="#dddddd" cellPadding="5" width="550px" align="center">
+			<tr>
+				<td width="80" height="33" bgcolor="#FFFFFF">
+				<div align="right">收货人：</div>
+				</td>
+				<td  align="left" bgcolor="#FFFFFF"><input name="realname" type="text" class="tcinput" id="realname" size="40" ><font color="red">*必填</font><label></label></td>
+			</tr>
+			<tr>
+				<td width="80" height="33" bgcolor="#FFFFFF">
+				<div align="right">收货手机：</div>
+				</td>
+				<td align="left" bgcolor="#FFFFFF"><input name="tel" type="text" class="tcinput" id="tel" size="40" ><font color="red">*必填</font><label></label></td>
+			</tr>	
+											
+			<tr>
+				<td height="33" bgcolor="#FFFFFF">
+				      <div align="right">省市区：</div>
+				</td> 
+				  <td class="tdleft"  align="left" bgcolor="#FFFFFF">	
+					    
+                        
+                        <select id="s_province" name="s_province">
+          </select>&nbsp;&nbsp;
+					     <select id="s_city" name="s_city" ></select>&nbsp;&nbsp;
+					    <select id="s_county" name="s_county"></select>&nbsp;&nbsp;
+				  <font color="red">*必填</font></td>
+		    </tr>
+		    <tr>
+		        <td height="33" bgcolor="#FFFFFF">
+				      <div align="right"> 街道：</div>
+				</td> 
+				<td  align="left" bgcolor="#FFFFFF">
+					<input name="streettc" type="text" class="tcinput" id="streettc" size="40" ><font color="red">*必填，中间不能带有符号</font>
+				       <script type="text/javascript" src="__PUBLIC__/js/area.js"></script>
+				       <script type="text/javascript">_init_area();</script>
+                    </td>
+			</tr>
+			<tr>
+				<td height="33" bgcolor="#FFFFFF">
+				      <div align="right">邮编：</div>
+				</td>
+				<td  align="left" bgcolor="#FFFFFF"><input name="streets" type="text" class="tcinput" id="streets" size="40" style=""> <font color="red">*必填，可以填000000</font></td>
+			</tr> 
+		</table>
+        <div style="text-align:center;margin-top:10px;">
+		
+            
+            <input type="button" class="submit" style="cursor:pointer;" id="Qiad" value="添加地址" class="ljbutton orange medium" onClick="addcoten()" style="width:80px;height:30px;font-size:14px;" />
+            
+         
+            
+            
+&nbsp;&nbsp;
+
+<input type="button" class="submit" onclick="close_div()" style="cursor:pointer;" value="关闭窗口" style="width:80px;height:30px;font-size:14px;" />
+        </div>
+    </form>	
+</div> 
+<style type="text/css">
+#bg{ display: none; position: absolute; top: 0%; left: 0%; width: 100%; height: 1200px; background-color: black; z-index:1001; -moz-opacity: 0.7; opacity:.70; filter: alpha(opacity=70);}
+.address{display: none; position: absolute; top: 35%; left: 25%;  padding: 8px; border: 8px solid #E8E9F7; background-color: white; z-index:1002; overflow: auto; font-size:14px;}
+</style>
+
+
+<script type="text/javascript"> 
+    function add_address()
+   {  
+   	   $("#bg").css('display','block');
+   	   $(".address").css('display','block'); 
+   } 
+   function address_focus()
+   {
+   	$('#address').val(''); 
+   }
+   function address_blur()
+   {
+     if($("#address").val()=='')
+   	   {
+   	   	  $("#address").val('填写街道地址(可为空)');
+   	   } 	
+   } 
+ 
+   function close_div()
+   {
+     	  $("#bg").css('display','none');
+   	  	  $(".address").css('display','none');  	
+   }
+</script>
+  
+  
+  </div>
+</div>
+</div>
+</div>
+        <!-- 右边内容区 -->
+	</div>
+</div>
+<!-- 主体区 -->
+
+
+ 
+<!-- 底部区 -->
+
+<include file="Public:foote" />
+<script type="text/javascript" src="/Public/moive_play/lxdh.js"></script>

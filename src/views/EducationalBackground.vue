@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <Card :bordered="false">
-            <p slot="title">基础信息</p>
+            <p slot="title">教育背景</p>
             <p>姓名：苏荣</p>
             <p>联系方式：18098971690/keepFur@163.com</p>
             <p>求职意向：web 前端开发</p>
@@ -19,9 +19,10 @@
 
 
 <style scoped>
-.container{
+.container {
     background: #eee;
     padding: 20px;
+    /* margin-top: 60px; */
 }
 
 </style>
