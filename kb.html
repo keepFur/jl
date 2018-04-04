@@ -681,9 +681,7 @@
 				 {
 				 	  var shouhuodizhi = adddan[2];//获取收件地址 
 				 } 
-                // 把多余一个的空格替换成一个空格
-                 shouhuodizhi = trim(shouhuodizhi).replace(/\s{1,}/g,' ');
-				 var shdz_array =trim(shouhuodizhi).split(' ');
+				 var shdz_array =trim(shouhuodizhi).split(" ");
 				 if(shdz_array.length<4)
 				 {
 				 	alert("第"+addsum +" 个收货地址格式中省、市、县之间应该用空格隔开，请仔细检查！");  isno=0;
@@ -750,10 +748,7 @@
 		 }   
 		 return str;   
 		}
-		// 去除字符串中多余的空格
-		function trimAll(){
-				
-		}   
+		
 		function addcoten() {
 
 
