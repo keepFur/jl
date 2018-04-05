@@ -1,0 +1,36 @@
+[{
+    "baseInfo": {
+        "avatar": "",
+        "name": "",
+        "sex": 1,
+        "beginWorkDate": "",
+        "age": 24,
+        "contactMethods": [{
+            "key": 1,
+            "value": ""
+        }],
+        "workStatus": [{
+            "key": 1,
+            "value": 1
+        }]
+    },
+    "skills": [{
+        "key": 1,
+        "value": "node.js"
+    }],
+    "workExperience": [{
+        "jobType": "web前端开发",
+        "jobName": "web前端开发",
+        "companyName": "深圳",
+        "companyType": "电子商务",
+        "skills": [{
+
+        }],
+        "beginDate": "2017-3-10",
+        "endDate": "2018-3-10",
+        "dept": "",
+        "jobContent": "",
+        "workAchievement": "",
+        "isHideInfo": true
+    }]
+}]
