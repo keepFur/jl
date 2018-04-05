@@ -2,7 +2,6 @@
 .container {
     background: #eee;
     padding: 20px;
-    /* margin-top: 60px; */
 }
 
 .time {
@@ -16,8 +15,12 @@
 </style>
 <template>
     <div class="container">
-        <Card :bordered="false">
+        <Card :bordered="false" v-if="!isEdit">
             <p slot="title">工作经历</p>
+            <a href="#" slot="extra" @click.prevent.stop="editSkillsHandle">
+                <Icon type="edit"></Icon>
+                编辑
+            </a>
             <Timeline>
                 <TimelineItem>
                     <p class="time">1976年</p>
@@ -41,10 +44,22 @@
                 </TimelineItem>
             </Timeline>
         </Card>
+        <Card v-if="isEdit">
+
+        </Card>
     </div>
 </template>
 <script>
 export default {
+    data: function() {
+        return {
+            isEdit: false
+        };
+    },
+    methods: {
+        editSkillsHandle: function() {
 
+        }
+    }
 }
 </script>

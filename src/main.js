@@ -11,7 +11,7 @@ import VueI18n from 'vue-i18n';
 import Locales from './locale';
 import zhLocale from 'iview/src/locale/lang/zh-CN';
 import enLocale from 'iview/src/locale/lang/en-US';
-
+import axios from 'axios';
 Vue.use(VueRouter);
 
 Vue.use(VueI18n);
@@ -23,7 +23,7 @@ const localLang = (navLang === 'zh-CN' || navLang === 'en-US') ? navLang : false
 const lang = window.localStorage.getItem('language') || localLang || 'zh-CN';
 
 Vue.config.lang = lang;
-
+Vue.prototype.$http = axios;
 // 多语言配置
 const locales = Locales;
 const mergeZH = Object.assign(zhLocale, locales['zh-CN']);
